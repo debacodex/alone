@@ -29,6 +29,13 @@ allprojects {
         mavenLocal()
         mavenCentral()
         google()
+        maven {
+            url = uri("https://maven.pkg.github.com/debacodex/material")
+            credentials {
+                username = project.findProperty("gpr.user")?: System.getenv("ALONE_USERNAME")
+                password = project.findProperty("gpr.token")?: System.getenv("ALONE_TOKEN")
+            }
+        }
     }
 }
 
